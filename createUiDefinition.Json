@@ -3,12 +3,8 @@
     "handler": "Microsoft.Compute.MultiVm",
     "version": "0.1.2-preview",
     "parameters": {
-        "basics": [{}],
-        "steps": [
+        "basics": [
             {
-                "name": "mainStep",
-                "elements": [
-                    {
                         "name": "commitmentPlansmlname",
                         "type": "Microsoft.Common.TextBox",
                         "label": "ML Commitment Plan",
@@ -248,30 +244,36 @@
                         },
                         "visible": true
                     }
+        ],
+        "steps": [
+            {
+                "name": "mainStep",
+                "elements": [
+                   
                 ]
             }
         ],
         "outputs": {
-            "commitmentPlans_ml_name": "[steps('mainStep').commitmentPlansmlname]",
-            "Workspaces_ml_name": "[steps('mainStep').Workspacesmlname]",
-            "workspaceCollections_name": "[steps('mainStep').workspaceCollectionsname]",
-            "namespaces_name": "[steps('mainStep').namespacesname]",
-            "servers_name": "[steps('mainStep').serversname]",
-            "storageAccounts_ml_name": "[steps('mainStep').storageAccountsmlname]",
-            "storageAccounts_name": "[steps('mainStep').storageAccountsname]",
-            "serverfarms_name": "[steps('mainStep').serverfarmsname]",
-            "sites_name": "[steps('mainStep').sitesname]",
-            "sites_cim_name": "[steps('mainStep').sitescimname]",
-            "AuthorizationRules_RootManageSharedAccessKey_name": "[steps('mainStep').AuthorizationRulesRootManageSharedAccessKeyname]",
-            "queues_assessmentsloadedqueue_name": "[steps('mainStep').queuesassessmentsloadedqueuename]",
-            "databases_master_name": "[steps('mainStep').databasesmastername]",
-            "databases_OBSOneBase_name": "[steps('mainStep').databasesOBSOneBasename]",
-            "databases_OBSOneBase_custURL_name": "[steps('mainStep').databasesOBSOneBasecustURLname]",
-            "firewallRules_AllowAllWindowsAzureIps_name": "[steps('mainStep').firewallRulesAllowAllWindowsAzureIpsname]",
-            "config_web_name": "[steps('mainStep').config_web_name]",
-            "hostNameBindings_azurewebsites.net_name": "[steps('mainStep').hostNameBindingsazurewebsitesnetname]",
-            "config_web_name_1": "[steps('mainStep').configwebname1]",
-            "hostNameBindings_cim.azurewebsites.net_name": "[steps('mainStep').hostNameBindingscimazurewebsitesnetname]"
+            "commitmentPlans_ml_name": "[basics('commitmentPlansmlname')]",
+            "Workspaces_ml_name": "[basics('Workspacesmlname')]",
+            "workspaceCollections_name": "[basics('workspaceCollectionsname')]",
+            "namespaces_name": "[basics('namespacesname')]",
+            "servers_name": "[basics('serversname')]",
+            "storageAccounts_ml_name": "[basics('storageAccountsmlname')]",
+            "storageAccounts_name": "[basics('storageAccountsname')]",
+            "serverfarms_name": "[basics('serverfarmsname')]",
+            "sites_name": "[basics('sitesname')]",
+            "sites_cim_name": "[basics('sitescimname')]",
+            "AuthorizationRules_RootManageSharedAccessKey_name": "[basics('AuthorizationRulesRootManageSharedAccessKeyname')]",
+            "queues_assessmentsloadedqueue_name": "[basics('queuesassessmentsloadedqueuename')]",
+            "databases_master_name": "[basics('databasesmastername')]",
+            "databases_OBSOneBase_name": "[basics('databasesOBSOneBasename')]",
+            "databases_OBSOneBase_custURL_name": "[basics('databasesOBSOneBasecustURLname')]",
+            "firewallRules_AllowAllWindowsAzureIps_name": "[basics('firewallRulesAllowAllWindowsAzureIpsname')]",
+            "config_web_name": "[basics('config_web_name')]",
+            "hostNameBindings_azurewebsites.net_name": "[basics('hostNameBindingsazurewebsitesnetname')]",
+            "config_web_name_1": "[basics('configwebname1')]",
+            "hostNameBindings_cim.azurewebsites.net_name": "[basics('hostNameBindingscimazurewebsitesnetname')]"
         }
     }
 }
