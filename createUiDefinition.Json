@@ -1,170 +1,283 @@
 {
-  "handler": "Microsoft.Compute.MultiVm",
-  "version": "0.0.1-preview",
-  "parameters": {
-    "basics": [
-      {
-        "name": "adminUsername",
-        "type": "Microsoft.Compute.UserNameTextBox",
-        "label": "VM username",
-        "toolTip": "Administrative username for the virtual machines.",
-        "osPlatform": "Linux",
-        "constraints": {
-          "required": true
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
+    "handler": "Microsoft.Compute.MultiVm",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "basics": [],
+        "steps": [
+            {
+                "name": "mainStep",
+                "label": "Deployment Details",
+                "subLabel": {
+                    "preValidation": "Required",
+                    "postValidation": "Done"
+                },
+                "bladeTitle": "Deployment Details",
+                "elements": [
+                    {
+                        "name": "commitmentPlansmlname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "ML Commitment Plan",
+                        "toolTip": "Enter name for the Azure Machine Learning commitment Plan",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "Workspacesmlname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "ML Workspace",
+                        "toolTip": "Enter name for the Azure Machine Learning workspace",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "workspaceCollectionsname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Power BI Workspace",
+                        "toolTip": "Enter name for the Power BI workspace",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "namespacesname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Service Bus",
+                        "toolTip": "Enter name for the Service Bus",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "serversname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "MS SQL Server",
+                        "toolTip": "Enter name for the Microsoft SQL Server",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "storageAccountsmlname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "ML Storage Account",
+                        "toolTip": "Enter name for the Azure Machine Learning Storage Account",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "storageAccountsname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Azure Storage Account",
+                        "toolTip": "Enter name for the Azure Storage Account",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "serverfarmsname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "App Service Plan",
+                        "toolTip": "Enter name for the App Service Plan",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "sitesname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Web App #1",
+                        "toolTip": "Enter name for the Web Application #1",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "sitescimname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Web App #2",
+                        "toolTip": "Enter name for the Web Application #2",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "AuthorizationRulesRootManageSharedAccessKeyname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Authorization Rules_Root",
+                        "toolTip": "Enter name for the Authorization Rules_Root Manage Shared Access Key",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "queuesassessmentsloadedqueuename",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Service Bus Queue",
+                        "toolTip": "Enter name for the Service Bus Queue",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "databasesmastername",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Master Database Name",
+                        "toolTip": "Enter name for the Master Database",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "databasesOBSOneBasename",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Database #1",
+                        "toolTip": "Enter name for the Database #1",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "databasesOBSOneBasecustURLname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Database #2",
+                        "toolTip": "Enter name for the Database #2",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "firewallRulesAllowAllWindowsAzureIpsname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Firewall Rules Allow All windows Azure",
+                        "toolTip": "Enter name for the Firewall Rules Allow All windows Azure",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "configwebname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Web Config",
+                        "toolTip": "Enter name for the Web Config",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "hostNameBindingsazurewebsitesnetname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Host Name Binding",
+                        "toolTip": "Enter name for the Host Name Binding",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "config_web_name_1",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Web Config #2",
+                        "toolTip": "Enter name for the Web Config #2",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    },
+                    {
+                        "name": "hostNameBindingscimazurewebsitesnetname",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Host Name Binding #2",
+                        "toolTip": "Enter name for the Host Name Bindings #2",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    }
+                ]
+            }
+        ],
+        "outputs": {
+            "commitmentPlans_ml_name": "[steps('mainStep').commitmentPlansmlname]",
+            "Workspaces_ml_name": "[steps('mainStep').Workspacesmlname]",
+            "workspaceCollections_name": "[steps('mainStep').workspaceCollectionsname]",
+            "namespaces_name": "[steps('mainStep').namespacesname]",
+            "servers_name": "[steps('mainStep').serversname]",
+            "storageAccounts_ml_name": "[steps('mainStep').storageAccountsmlname]",
+            "storageAccounts_name": "[steps('mainStep').storageAccountsname]",
+            "serverfarms_name": "[steps('mainStep').serverfarmsname]",
+            "sites_name": "[steps('mainStep').sitesname]",
+            "sites_cim_name": "[steps('mainStep').sitescimname]",
+            "AuthorizationRules_RootManageSharedAccessKey_name": "[steps('mainStep').AuthorizationRulesRootManageSharedAccessKeyname]",
+            "queues_assessmentsloadedqueue_name": "[steps('mainStep').queuesassessmentsloadedqueuename]",
+            "databases_master_name": "[steps('mainStep').databasesmastername]",
+            "databases_OBSOneBase_name": "[steps('mainStep').databasesOBSOneBasename]",
+            "databases_OBSOneBase_custURL_name": "[steps('mainStep').databasesOBSOneBasecustURLname]",
+            "firewallRules_AllowAllWindowsAzureIps_name": "[steps('mainStep').firewallRulesAllowAllWindowsAzureIpsname]",
+            "config_web_name": "[steps('mainStep').config_web_name]",
+            "hostNameBindings_azurewebsites.net_name": "[steps('mainStep').hostNameBindingsazurewebsitesnetname]",
+            "config_web_name_1": "[steps('mainStep').configwebname1]",
+            "hostNameBindings_cim.azurewebsites.net_name": "[steps('mainStep').hostNameBindingscimazurewebsitesnetname]"
         }
-      },
-      {
-        "name": "adminCredentials",
-        "type": "Microsoft.Compute.CredentialsCombo",
-        "label": {
-          "authenticationType": "Authentication type",
-          "password": "Password",
-          "confirmPassword": "Confirm password",
-          "sshPublicKey": "SSH public key"
-        },
-        "constraints": {
-          "required": true
-        },
-        "options": {
-          "hideConfirmation": false
-        },
-        "osPlatform": "Linux"
-      }
-    ],
-    "steps": [
-      {
-        "name": "deploymentDetails",
-        "label": "Deployment Details",
-        "subLabel": {
-          "preValidation": "Required",
-          "postValidation": "Done"
-        },
-        "bladeTitle": "Deployment Details",
-        "elements": [
-          {
-            "name": "publicIP",
-            "type": "Microsoft.Network.PublicIpAddressCombo",
-            "label": {
-              "publicIpAddress": "Public IP address",
-              "domainNameLabel": "Domain Name prefix"
-            },
-            "defaultValue": {
-              "publicIpAddressName": "my-pub-ip"
-            },
-            "options": {
-              "hideNone": true
-            }
-          },
-          {
-            "name": "vnet",
-            "type": "Microsoft.Network.VirtualNetworkCombo",
-            "label": {
-              "virtualNetwork": "Virtual Network",
-              "subnets": "Subnets"
-            },
-            "defaultValue": {
-              "name": "my-vnet",
-              "addressPrefixSize": "/16"
-            },
-            "constraints": {
-              "minAddressPrefixSize": "/16"
-            },
-            "subnets": {
-              "subnet1": {
-                "label": "First subnet",
-                "defaultValue": {
-                  "name": "subnet-1",
-                  "addressPrefixSize": "/24"
-                },
-                "constraints": {
-                  "minAddressPrefixSize": "/24"
-                }
-              },
-              "subnet2": {
-                "label": "Second subnet",
-                "defaultValue": {
-                  "name": "subnet-2",
-                  "addressPrefixSize": "/24"
-                },
-                "constraints": {
-                  "minAddressPrefixSize": "/24"
-                }
-              }
-            }
-          },
-          {
-            "name": "storageAccount",
-            "type": "Microsoft.Storage.StorageAccountSelector",
-            "label": "Storage account",
-            "toolTip": "Storage account where the VM disks will be stored.",
-            "defaultValue": {
-              "type": "Standard_LRS"
-            },
-            "constraints": {
-              "required": true,
-              "excludedTypes": [
-                "Premium_LRS"
-              ]
-            }
-          },
-          {
-            "name": "frontVMSize",
-            "type": "Microsoft.Compute.SizeSelector",
-            "label": "Front VM size",
-            "toolTip": "The size of virtual machine for front-end VM.",
-            "recommendedSizes": [
-              "Standard_A1",
-              "Standard_D1",
-              "Standard_D4"
-            ],
-            "osPlatform": "Linux",
-            "imageReference": {
-              "publisher": "Canonical",
-              "offer": "UbuntuServer",
-              "sku": "14.04.2-LTS"
-            }
-          },
-          {
-            "name": "backVMSize",
-            "type": "Microsoft.Compute.SizeSelector",
-            "label": "Back VM size",
-            "toolTip": "The size of virtual machine for back-end VM.",
-            "recommendedSizes": [
-              "Standard_A1",
-              "Standard_D1",
-              "Standard_D4"
-            ],
-            "osPlatform": "Linux",
-            "imageReference": {
-              "publisher": "Canonical",
-              "offer": "UbuntuServer",
-              "sku": "14.04.3-LTS"
-            }
-          }
-        ]
-      }
-    ],
-    "outputs": {
-      "adminUsername": "[basics('adminUsername')]",
-      "authenticationType": "[basics('adminCredentials').authenticationType]",
-      "adminPassword": "[basics('adminCredentials').password]",
-      "sshPublicKey": "[basics('adminCredentials').sshPublicKey]",
-      "publicIPNewOrExisting": "[steps('deploymentDetails').publicIP.newOrExistingOrNone]",
-      "publicIPName": "[steps('deploymentDetails').publicIP.name]",
-      "dnsNameForPublicIP": "[steps('deploymentDetails').publicIP.domainNameLabel]",
-      "vnetNewOrExisting": "[steps('deploymentDetails').vnet.newOrExisting]",
-      "vnetName": "[steps('deploymentDetails').vnet.name]",
-      "vnetPrefix": "[steps('deploymentDetails').vnet.addressPrefix]",
-      "vnetSubnet1Name": "[steps('deploymentDetails').vnet.subnets.subnet1.name]",
-      "vnetSubnet1Prefix": "[steps('deploymentDetails').vnet.subnets.subnet1.addressPrefix]",
-      "vnetSubnet2Name": "[steps('deploymentDetails').vnet.subnets.subnet2.name]",
-      "vnetSubnet2Prefix": "[steps('deploymentDetails').vnet.subnets.subnet2.addressPrefix]",
-      "storageAccountNewOrExisting": "[steps('deploymentDetails').storageAccount.newOrExisting]",
-      "storageAccountName": "[steps('deploymentDetails').storageAccount.name]",
-      "storageAccountType": "[steps('deploymentDetails').storageAccount.type]",
-      "frontVMSize": "[steps('deploymentDetails').frontVMSize]",
-      "backVMSize": "[steps('deploymentDetails').backVMSize]",
-      "location": "[location()]"
     }
-  }
 }
