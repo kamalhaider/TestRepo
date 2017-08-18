@@ -1,35 +1,24 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
-   "handler": "Microsoft.Compute.MultiVm",
-   "version": "0.1.2-preview",
-    "parameters": {
-        "basics": [
-            {}
-        ],
-        "steps": [
-           {
-  "name": "element1",
-  "type": "Microsoft.Common.TextBox",
-  "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Halp!",
-  "constraints": {
-    "required": true,
-    "regex": "^[a-z0-9A-Z]{1,30}$",
-    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
-  },
-  "visible": true
-}
-        ],
-        "outputs": {
-            "location": "[location()]",
-            "vmSize": "[steps('vmConfig').vmSize]",
-            "vmNamePrefix": "[steps('vmConfig').vmNamePrefix]",
-            "userName": "[steps('credentialsConfig').adminUsername]",
-            "pwd": "[steps('credentialsConfig').adminPassword.password]",
-            "dnsName": "[steps('webConfig').dnsAndPublicIP.domainNameLabel]",
-            "publicIPAddressName": "[steps('webConfig').dnsAndPublicIP.name]",
-            "enablePremiumManagement": "[steps('webConfig').management]"
+  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
+  "handler": "Microsoft.Compute.MultiVm",
+  "version": "0.1.2-preview",
+  "parameters": {
+    "basics": [],
+    "steps": [
+        {
+            "name": "element1",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Some text box",
+            "defaultValue": "foobar",
+            "toolTip": "Halp!",
+            "constraints": {
+                "required": true,
+                "regex": "^[a-z0-9A-Z]{1,30}$",
+                "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+            },
+            "visible": true
         }
-    }
+    ],
+    "outputs": {}
+  }
 }
