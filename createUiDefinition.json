@@ -19,7 +19,7 @@
                         "type": "Microsoft.Common.TextBox",
                         "label": "ML Commitment Plan",
                         "toolTip": "Enter name for the Azure Machine Learning commitment Plan",
-                        "defaultValue": "[basics('resourceGroup').location]",
+                        "defaultValue": "[resourceGroupName()]",
                         "constraints": {
                             "required": true,
                             "regex": "^[a-z0-9A-Z]{1,30}$",
